@@ -24,34 +24,19 @@ class FormRenderField(forms.MultiValueField):
         self.configure_widget()
 
     def get_bound_field(self, form, field_name):
-        return MultiValueBoundField(form, self, field_name)
+        pass
 
     def configure_widget(self):
-        widgets = [field.widget for field in self.fields]
-        self.widget = FormRenderWidget(widgets)
+        pass
 
     def _configure_new_fields(self, fields):
-        for f in fields:
-            f.error_messages.setdefault('incomplete', self.error_messages['incomplete'])
-            if self.disabled:
-                f.disabled = True
-            if self.require_all_fields:
-                # Set 'required' to False on the individual fields, because the
-                # required validation will be handled by MultiValueField, not
-                # by those individual fields.
-                f.required = False
-        return tuple(fields)
+        pass
 
     def add_fields(self, form_json):
-        self.fields += self._configure_new_fields(gen_fields_from_json(form_json))
-        self.configure_widget()
+        pass
 
     def replace_fields(self, form_json):
-        self.fields = self._configure_new_fields(gen_fields_from_json(form_json))
-        self.configure_widget()
+        pass
 
     def compress(self, data):
-        result = {}
-        for i, val in enumerate(data):
-            result[self.fields[i].label] = val
-        return result
+        pass

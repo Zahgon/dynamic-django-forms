@@ -5,73 +5,51 @@ from .widgets import HTMLFieldWidget
 
 
 def _process_checkbox(field_json):
-    field = forms.MultipleChoiceField()
-    field.widget = forms.CheckboxSelectMultiple()
-    return field
+    pass
 
 
 def _process_date(field_json):
-    field = forms.DateField()
-    field.widget.input_type = "date"
-    return field
+    pass
 
 
 def _process_email(field_json):
-    return forms.EmailField()
+    pass
 
 
 def _process_hidden(field_json):
-    field = forms.CharField()
-    field.widget = forms.HiddenInput()
-    return field
+    pass
 
 
 def _process_number(field_json):
-    return forms.FloatField(
-        min_value=field_json.get("min", None),
-        max_value=field_json.get("max", None),
-        widget=forms.NumberInput(attrs={'step': field_json.get("step", "any")})
-    )
+    pass
 
 
 def _process_radio(field_json):
-    field = forms.ChoiceField()
-    field.widget = forms.RadioSelect(
-        attrs={"required": field_json.get("required", False)}
-    )
-    return field
+    pass
 
 
 def _process_select(field_json):
-    if (field_json.get('multiple', False)):
-        return forms.MultipleChoiceField()
-    return forms.ChoiceField()
+    pass
 
 
 def _process_text_input(field_json):
-    return forms.CharField(max_length=field_json.get("maxlength", None))
+    pass
 
 
 def _process_text_area(field_json):
-    field = forms.CharField()
-    field.widget = forms.Textarea()
-    return field
+    pass
 
 
 def _process_url(field_json):
-    return forms.URLField()
+    pass
 
 
 def _process_heading(field_json):
-    field = HTMLField()
-    field.widget = HTMLFieldWidget(params=field_json)
-    return field
+    pass
 
 
 def _process_paragraph(field_json):
-    field = HTMLField()
-    field.widget = HTMLFieldWidget(params=field_json)
-    return field
+    pass
 
 
 TYPE_MAPPING = {
